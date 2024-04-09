@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "c771901a-1da1-4098-901a-f57f67037cfb",
+		"name": "w6d2-09-04-24",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34138800"
+	},
+	"item": [
+		{
+			"name": "/authors => ritorna la lista di autori",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "/authors/123 => ritorna un singolo autore",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/authors/{{authorId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "/authors => crea un nuovo autore",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"nome\": \"Nuovo Autore 1\",\r\n    \"cognome\": \"Cognome Autore 1\",\r\n    \"email\": \"nuovoautore1@example.com\",\r\n    \"dataDiNascita\": \"1990-01-01\",\r\n    \"avatar\": \"https://example.com/avatar1\"\r\n  },",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "/authors/123 => modifica lo specifico autore",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Nuovo Autore 2\",\r\n    \"cognome\": \"Cognome Autore 2\",\r\n    \"email\": \"nuovoautore2@example.com\",\r\n    \"dataDiNascita\": \"1995-01-01\",\r\n    \"avatar\": \"https://example.com/avatar2\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/authors/{{authorId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "/authors/123 => cancella lo specifico autore",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3001/authors/{{authorId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "/blogPosts => crea un nuovo blog post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"categoria\": \"gossip\",\r\n  \"titolo\": \"I Ferragnez divorziano\",\r\n  \"cover\": \"https://picsum.photos/200/300\",\r\n  \"contenuto\": \"wow si sono lasciati\",\r\n  \"tempoDiLettura\": 10\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/blogPosts"
+			},
+			"response": []
+		},
+		{
+			"name": "/blogPosts => ritorna la lista di blog post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/blogPosts"
+			},
+			"response": []
+		},
+		{
+			"name": "/blogPosts /123 => ritorna un singolo blog post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3001/blogPosts/{{blogPostId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "/blogPosts /123 => modifica lo specifico blog post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"categoria\": \"gossip\",\r\n  \"titolo\": \"I Ferragnez divorziano\",\r\n  \"cover\": \"https://picsum.photos/200/300\",\r\n  \"contenuto\": \"wow si sono lasciati, che tragedia\",\r\n  \"tempoDiLettura\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3001/blogPosts/{{blogPostId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "/blogPosts /123 => cancella lo specifico blog post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3001/blogPosts/{{blogPostId}}"
+			},
+			"response": []
+		}
+	]
+}
