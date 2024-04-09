@@ -25,7 +25,7 @@ public class AutoriController {
 
 
 
-    // 2. GET http://localhost:3001/authors/{authorId} (ritorna un singolo autore)
+    // 2. GET http://localhost:3001/authors/{{authorId}} (ritorna un singolo autore)
     @GetMapping("/{authorId}")
     private Autore findAutoreById(@PathVariable int authorId){
         return this.autoriService.findById(authorId);
@@ -38,16 +38,16 @@ public class AutoriController {
         return this.autoriService.saveAutore(body);
     }
 
-    // 4. PUT http://localhost:3001/authors/{authorsId} (+ body) (modifica lo specifico autore)
+    // 4. PUT http://localhost:3001/authors/{{authorId}} (+ body) (modifica lo specifico autore)
     @PutMapping("/{authorId}")
-    private Autore findAutoreByIdAndUpdate(@PathVariable int autoreId, @RequestBody Autore body){
-        return this.autoriService.findByIdAndUpdate(autoreId, body);
+    private Autore findByIdAndUpdate(@PathVariable int authorId, @RequestBody Autore body){
+        return this.autoriService.findByIdAndUpdate(authorId, body);
     }
 
-    // 5. DELETE http://localhost:3001/authors/{authorId} (cancella lo specifico autore)
+    // 5. DELETE http://localhost:3001/authors/{{authorId}} (cancella lo specifico autore)
     @DeleteMapping("/{authorId}")
     @ResponseStatus(HttpStatus.NO_CONTENT) // Status Code 204
-    private void findAutoreByIdAndDelete(@PathVariable int autoreId){
-        this.autoriService.findByIdAndDelete(autoreId);
+    private void findAutoreByIdAndDelete(@PathVariable int authorId){
+        this.autoriService.findByIdAndDelete(authorId);
     }
 }

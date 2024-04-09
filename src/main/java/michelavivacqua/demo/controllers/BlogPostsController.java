@@ -1,8 +1,6 @@
 package michelavivacqua.demo.controllers;
 
-import michelavivacqua.demo.entities.Autore;
 import michelavivacqua.demo.entities.BlogPost;
-import michelavivacqua.demo.services.AutoriService;
 import michelavivacqua.demo.services.BlogPostsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +25,7 @@ public class BlogPostsController {
 
 
 
-    // 2. GET http://localhost:3001/blogPosts/{blogPostId} (ritorna un blog post)
+    // 2. GET http://localhost:3001/blogPosts/{{blogPostId}} (ritorna un blog post)
     @GetMapping("/{blogPostId}")
     private BlogPost findBlogPostById(@PathVariable int blogPostId){
         return this.blogPostsService.findById(blogPostId);
@@ -40,13 +38,13 @@ public class BlogPostsController {
         return this.blogPostsService.saveBlogPost(body);
     }
 
-    // 4. PUT http://localhost:3001/blogPosts/{blogPostId} (+ body) (modifica lo specifico blog post)
+    // 4. PUT http://localhost:3001/blogPosts/{{blogPostId}} (+ body) (modifica lo specifico blog post)
     @PutMapping("/{blogPostId}")
     private BlogPost findBlogPostByIdAndUpdate(@PathVariable int blogPostId, @RequestBody BlogPost body){
         return this.blogPostsService.findByIdAndUpdate(blogPostId, body);
     }
 
-    // 5. DELETE http://localhost:3001/blogPosts/{blogPostId} (cancella lo specifico blog post)
+    // 5. DELETE http://localhost:3001/blogPosts/{{blogPostId}} (cancella lo specifico blog post)
     @DeleteMapping("/{blogPostId}")
     @ResponseStatus(HttpStatus.NO_CONTENT) // Status Code 204
     private void findBlogPostByIdAndDelete(@PathVariable int blogPostId){
